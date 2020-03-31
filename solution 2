@@ -1,0 +1,14 @@
+p=eval(input())
+def new(d):
+    try:
+        for k in d:
+            if type(d[k])==type({}):
+                for i in d[k]:
+                    d[k+i]=d[k][i]
+                d.pop(k)
+                new(d)
+        else:
+            print(d)
+    except RuntimeError:
+            pass
+new(p)
