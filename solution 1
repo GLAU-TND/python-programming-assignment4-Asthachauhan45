@@ -1,25 +1,18 @@
 l=eval(input())
 n=int(input())
-new=[]
-for i in l:
-    if i[0] not in new:
-        new.append(i[0])
 dct={}
-for i in new:
+for i in set(l[n][0] for n in range(len(l))):
     dct[i]=[]
 for i in dct:
     for j in l:
         if i==j[0]:
             dct[i].append(j[1])
-dct2={}
-r=0
+a=[]
 for i in range(len(dct)):
     for j in range(i+1,len(dct)):
         res = len(set(dct[list(dct)[i]]) & set(dct[list(dct)[j]])) / float(len(set(dct[list(dct)[i]]) | set(dct[list(dct)[j]]))) * 100
         if i!=j:
-            dct2[r]=[round(res,2),list(dct)[j],list(dct)[i]]
-            r=r+1
-a=list(dct2.values())
+            a+=[[round(res,2),list(dct)[j],list(dct)[i]]]
 for k in range(len(a)):
     if a[k][1]>a[k][2]:
         c=a[k][1]
@@ -31,3 +24,4 @@ l=[]
 for q in range(n):
     l+=[(a[q][1],a[q][2])]
 print(l)
+
