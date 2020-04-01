@@ -1,7 +1,3 @@
 s=input()
 st=eval(input())
-n=set()
-for k in st:
-    if s==k[0:len(s)]:
-        n.add(k)
-print(n)
+print(set(i for i in st if i.startswith(s)))
